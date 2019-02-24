@@ -15,4 +15,8 @@ module.exports = app => {
   app.post("/signup", Authentication.signup);
 
   app.post("/signin", requireLogin, Authentication.signin);
+
+  app.all("/*", (req, res) => {
+    res.status(400).send("Invalid URL");
+  });
 };

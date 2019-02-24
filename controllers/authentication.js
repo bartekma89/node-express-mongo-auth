@@ -14,15 +14,15 @@ exports.signup = async (req, res, next) => {
   try {
     const user = await User.findOne({ email });
 
-    if (user) {
-      return res.status(422).json({
-        error: "The user exist"
-      });
-    }
-
     if (isEmpty(email) || isEmpty(password)) {
       return res.status(422).json({
         error: "You must provide emial and password"
+      });
+    }
+
+    if (user) {
+      return res.status(422).json({
+        error: "The user exist"
       });
     }
 
