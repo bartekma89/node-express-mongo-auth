@@ -9,7 +9,7 @@ const db = require("./db");
 
 app.use(morgan("combined"));
 app.use(bodyParser.json({ type: "*/*" }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 router(app);
 
